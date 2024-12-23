@@ -1,0 +1,146 @@
+.form-title {
+  font-size: 2rem;
+}
+
+.form-checkbox {
+  display: flex;
+  margin-bottom: 0;
+  height: 30px;
+}
+
+.rememberMe-checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  border: 2px solid #babec9;
+  border-radius: 0.25em;
+  background-color: white;
+  cursor: pointer;
+  color: white;
+  position: relative;
+  transition: all ease-in-out .2s;
+}
+
+.rememberMe-checkbox:checked {
+  background-color: #e04747;
+  border-color: #e04747;
+}
+
+.rememberMe-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  width: 0.8em;
+  height: 0.5em;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: rotate(-45deg);
+}
+
+.rememberMe-checkbox:focus {
+  outline: 2px solid black;
+}
+
+.rememberMe-label {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-m4);
+  color: var(--color-text-neutral-default);
+  cursor: pointer;
+  padding-bottom: 5px;
+}
+
+.reset-credentials-link {
+  color: #e04747;
+  font-size: .9em;
+  font-weight: bold;
+  position: relative;
+  text-decoration: none;
+  height: 100%;
+}
+
+.reset-credentials-link::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  border-radius: 4px;
+  background-color: #e04747;
+  bottom: -4px;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .3s ease-in-out;
+}
+
+.reset-credentials-link:hover {
+  color: #e04747;
+}
+
+.reset-credentials-link:hover::before {
+  appearance: none;
+  transform-origin: left;
+  transform: scaleX(1);
+  color: currentColor;
+}
+
+button[type=button] {
+  border-radius: 12px;
+}
+
+.login-button {
+  color: var(--color-text-neutral-inverted);
+  background: var(--color-background-brand-default);
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-m4);
+  padding: var(--padding-km2) var(--padding-km4);
+  margin-top: 1.5rem;
+  border-radius: 12px;
+  border: var(--border-width-none) solid var(--color-border-neutral-default);
+  cursor: pointer;
+  transition: background-color 290ms cubic-bezier(0.4, 0, 0.2, 1), border 200ms ease-in, transform 200ms ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 108px;
+  height: 48px;
+  text-decoration: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-button:disabled {
+  background-color: rgb(221, 223, 228);
+  color: #fff;
+  cursor: not-allowed;
+  border-radius: 12px;
+}
+
+.login-button:active {
+  transform: translateY(0);
+  background-color: var(--color-hover-brand-strong);
+  border-radius: 12px;
+}
+
+.login-button:hover:active {
+  background-color: #cc2f2f;
+  border-radius: 12px;
+}
+
+.login-button:focus {
+  outline: none;
+  border: 2px solid var(--color-border-brand-default);
+  border-radius: 12px;
+}
+
+.login-button:disabled:hover,
+.login-button:disabled:active {
+  background-color: rgb(221, 223, 228);
+  transform: none;
+  border-radius: 12px;
+}

